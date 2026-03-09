@@ -1,12 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Administración y Gestión</title>
+  <title>Administración</title>
   <link rel="stylesheet" href="../styles/administration.css">
 </head>
 <body>
+
+  <!-- Barra de navegacion -->
+  <nav id="navigation-bar">
+    <span class="nav-brand">Cafetín Central</span>
+    <ul>
+      <li><a href="#" class="nav-link active" data-section="add-page">Agregar al Menú</a></li>
+      <li><a href="#" class="nav-link" data-section="delete-page">Eliminar del Menú</a></li>
+    </ul>
+    <a href="../index.html" class="nav-logout">Cerrar sesión</a>
+  </nav>
+
+  <main>
+
+    <!-- Pestaña de Agregar producto -->
+    <section id="add-page" class="page active">
+      <h2>Agregar al Menú</h2>
+
+      <!-- Formulario para agregar el nuevo producto -->
+      <form class="admin-form" id="add-form">
+        <div class="form-group">
+          <label for="product-name">Nombre del producto</label>
+          <input type="text" id="product-name" placeholder="Ej. Café con Leche" />
+        </div>
+        <div class="form-group">
+          <label for="product-price">Precio ($)</label>
+          <input type="number" id="product-price" placeholder="0.00" min="0.01" step="0.01" />
+        </div>
+        <div class="form-group">
+          <label for="product-img">URL de la foto (carpeta imagenes/)</label>
+          <input type="text" id="product-img" placeholder="imagenes/cafe-con-leche.webp" />
+        </div>
+        <!-- Boton para agregar el nuevo producto -->
+        <button type="button" class="primary-btn" id="add-btn">Agregar producto</button>
+      </form>
+
+      <!-- Mensaje de producto agregado exitosamente -->
+      <p class="success-msg" id="add-success-msg">Producto agregado exitosamente.</p>
+
+      <!-- Lista temporal de productos agregados en esta sesión -->
+      <div id="added-products-wrapper" style="display:none">
+        <h3>Productos agregados en esta sesión</h3>
+        <ul id="added-products-list" class="added-list"></ul>
+      </div>
+    </section>
+
+    <!-- Pestaña de Eliminar producto -->
+    <section id="delete-page" class="page">
+      <h2>Eliminar del Menú</h2>
+      <ul id="delete-products-list" class="delete-list"></ul>
+    </section>
+
+  </main>
 
   <script src="../scripts/administration.js"></script>
 </body>

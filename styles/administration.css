@@ -1,1 +1,217 @@
-// just to fill out this file
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #ffffff;
+  color: #1a1714;
+}
+
+/* Estilos de la barra de navegacion */
+#navigation-bar {
+  display: flex; 
+  align-items: center; 
+  gap: 24px;
+  padding: 0 32px; 
+  height: 58px;
+  background: #fff; 
+  border-bottom: 1.5px solid #e5e0d8;
+  position: sticky; 
+  top: 0; 
+  z-index: 100;
+}
+
+.nav-brand { 
+  font-weight: 700; 
+  font-size: 1rem; 
+  color: #2D6A4F; 
+  margin-right: auto; 
+}
+
+#navigation-bar ul { 
+  list-style: none; 
+  display: flex; 
+  gap: 4px; 
+}
+
+#navigation-bar ul li a {
+  display: block; 
+  padding: 7px 13px; 
+  border-radius: 8px;
+  text-decoration: none; 
+  font-size: 0.875rem; 
+  font-weight: 500;
+  color: #8a8278; 
+  transition: background 0.2s, color 0.2s;
+}
+
+#navigation-bar ul li a:hover  { background: #f5f5f5; color: #1a1714; }
+#navigation-bar ul li a.active { background: #e8f5ee; color: #2D6A4F; font-weight: 600; }
+
+.nav-logout {
+  font-size: 0.875rem; 
+  font-weight: 500;
+  color: #8a8278; 
+  text-decoration: none;
+  padding: 7px 13px; 
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-logout:hover { 
+  background: #f5f5f5; 
+  color: #1a1714; 
+}
+
+/* Estilos de la parte principal */
+main { 
+  max-width: 700px; 
+  margin: 0 auto; 
+  padding: 32px 24px; 
+}
+
+.page { display: none; }
+.page.active { display: block; }
+.page h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; }
+
+/* Estilos del formulario para agregar un nuevo producto */
+.admin-form { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 16px; 
+  margin-bottom: 16px; 
+}
+
+.form-group { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px; 
+}
+
+.form-group label {
+  font-size: 0.8rem; 
+  font-weight: 600;
+  color: #8a8278; 
+  text-transform: uppercase; 
+  letter-spacing: 0.05em;
+}
+
+.form-group input {
+  padding: 10px 13px; 
+  border: 1.5px solid #e5e0d8;
+  border-radius: 8px; 
+  font-size: 0.9rem; 
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus {
+  border-color: #2D6A4F;
+  box-shadow: 0 0 0 3px rgba(45,106,79,0.1);
+}
+
+.primary-btn {
+  padding: 11px; 
+  border: none; 
+  border-radius: 8px;
+  background: #2D6A4F; 
+  color: #fff;
+  font-size: 0.95rem; 
+  font-weight: 600; 
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.primary-btn:hover { background: #235c42; }
+
+/* Estilos del mensaje de exito */
+.success-msg {
+  display: none; 
+  margin-bottom: 24px;
+  background: #e8f5ee; 
+  color: #2D6A4F;
+  border-left: 3px solid #2D6A4F;
+  border-radius: 8px; 
+  padding: 10px 14px; 
+  font-size: 0.875rem;
+}
+
+.success-msg.visible { display: block; }
+
+/* Estilos de la visualizacion de la lista de productos agregados al sistema */
+#added-products-wrapper h3 {
+  font-size: 1rem; 
+  font-weight: 700; 
+  margin-bottom: 12px;
+}
+
+.added-list { 
+  list-style: none; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px; 
+}
+
+.added-item {
+  display: flex; 
+  align-items: center; 
+  gap: 12px;
+  padding: 10px 14px; 
+  border: 1.5px solid #e5e0d8;
+  border-radius: 10px; 
+  font-size: 0.875rem;
+  background: #fafafa;
+}
+
+.added-item-name  { flex: 1; font-weight: 600; }
+.added-item-price { color: #2D6A4F; font-weight: 700; min-width: 52px; }
+.added-item-img   { color: #8a8278; font-size: 0.78rem; }
+
+/* Estilos de la visualizacion de la lista de productos eliminados */
+.delete-list { 
+  list-style: none; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+}
+
+.delete-item {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 12px 16px; 
+  border: 1.5px solid #e5e0d8;
+  border-radius: 10px; 
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.delete-item:hover { border-color: #c0392b; }
+
+.delete-item-info { display: flex; align-items: center; gap: 14px; flex: 1; }
+.delete-item-name  { font-weight: 600; font-size: 0.9rem; flex: 1; }
+.delete-item-price { color: #2D6A4F; font-weight: 700; min-width: 52px; }
+.delete-item-img   { color: #8a8278; font-size: 0.78rem; }
+
+.danger-btn {
+  padding: 6px 14px; 
+  border: none; 
+  border-radius: 7px;
+  background: #c0392b; 
+  color: #fff;
+  font-size: 0.78rem; 
+  font-weight: 600; 
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.danger-btn:hover { background: #a93226; }
+
+.empty-msg { 
+  color: #8a8278; 
+  font-size: 0.875rem; 
+  text-align: center; 
+  padding: 24px 0; 
+}
