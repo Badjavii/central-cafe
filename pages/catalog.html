@@ -7,6 +7,173 @@
   <link rel="stylesheet" href="../styles/catalog.css">
 </head>
 <body>
+  <!-- Barra de navegación -->
+  <nav id="navigation-bar">
+    <span class="nav-brand">Cafetín Central</span>
+    <ul>
+      <li><a href="#" class="nav-link active" data-section="catalog-page">Catálogo</a></li>
+      <li><a href="#" class="nav-link" data-section="history-page">Historial de Compras</a></li>
+      <li>
+        <a href="#" class="nav-link" data-section="shopping-cart-page">
+          Carrito <span id="cart-count" class="cart-badge">0</span>
+        </a>
+      </li>
+      <li><a href="../index.html" id="logout-btn">Cerrar sesión</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- Aviso del carrito de compras -->
+    <section id="shopping-cart-notice" class="temporal-notice">
+      <p>El producto se añadió al carrito exitosamente.</p>
+    </section>
+
+    <!-- Catálogo o menú-->
+    <section id="catalog-page" class="page active">
+      <h2>Menú</h2>
+      <!-- Lista de productos -->
+      <ul>
+        <!-- Producto nro. 1 -->
+        <li>
+          <div class="product-card">
+            <img src="../imgs/productos/cafe-negro.webp" alt="" />
+            <div class="product-info">
+              <span class="product-category">Bebida</span>
+              <h3 class="product-name">Café Negro</h3>
+              <footer class="product-footer">
+                <span class="product-price">$2.50</span>
+                <button class="add-btn">+ Añadir</button>
+              </footer>
+            </div>
+          </div>
+        </li>
+        <!-- Producto nro. 2 -->
+        <li>
+          <div class="product-card">
+            <img src="../imgs/productos/malta.webp" alt="" />
+            <div class="product-info">
+              <span class="product-category">Bebida</span>
+              <h3 class="product-name">Malta</h3>
+              <footer class="product-footer">
+                <span class="product-price">$1.10</span>
+                <button class="add-btn">+ Añadir</button>
+              </footer>
+            </div>
+          </div>
+        </li>
+        <!-- Producto nro. 3 -->
+        <li>
+          <div class="product-card">
+            <img src="../imgs/productos/empanada-queso.webp" alt="" />
+            <div class="product-info">
+              <span class="product-category">Desayuno</span>
+              <h3 class="product-name">Empanada de Queso</h3>
+              <footer class="product-footer">
+                <span class="product-price">$1.80</span>
+                <button class="add-btn">+ Añadir</button>
+              </footer>
+            </div>
+          </div>
+        </li>
+        <!-- Producto nro. 4 -->
+        <li>
+          <div class="product-card">
+            <img src="../imgs/productos/empanada-carne.webp" alt="" />
+            <div class="product-info">
+              <span class="product-category">Desayuno</span>
+              <h3 class="product-name">Empanada de Carne Molida</h3>
+              <footer class="product-footer">
+                <span class="product-price">$2.50</span>
+                <button class="add-btn">+ Añadir</button>
+              </footer>
+            </div>
+          </div>
+        </li>
+        <!-- Producto nro. 5 -->
+        <li>
+          <div class="product-card">
+            <img src="../imgs/productos/brownie.webp" alt="" />
+            <div class="product-info">
+              <span class="product-category">Dulce</span>
+              <h3 class="product-name">Brownie</h3>
+              <footer class="product-footer">
+                <span class="product-price">$2.90</span>
+                <button class="add-btn">+ Añadir</button>
+              </footer>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+    
+    <section id="history-page" class="page">
+      <h2>Historial de Compras</h2>
+
+      <p class="points-msg">Puntos de lealtad: Tienes <strong>150 puntos</strong> acumulados!</p>
+
+      <!-- Orden nro. 1 -->
+        <article class="history-order">
+          <header class="history-order-header">
+            <span class="order-id">ORDEN-001</span>
+            <span class="order-date">2025-02-10</span>
+            <span class="order-total">$6.80</span>
+          </header>
+          <ul class="history-order-items">
+            <li class="history-item-row">
+              <span>Café Negro x2</span>
+              <span>$5.00</span>
+            </li>
+            <li class="history-item-row">
+              <span>Empanada de Queso x1</span>
+              <span>$1.80</span>
+            </li>
+          </ul>
+        </article>
+
+      <!-- Orden nro. 2 -->
+      <article class="history-order">
+        <header class="history-order-header">
+          <span class="order-id">ORDEN-002</span>
+          <span class="order-date">2025-02-18</span>
+          <span class="order-total">$7.60</span>
+        </header>
+        <ul class="history-order-items">
+          <li class="history-item-row">
+            <span>Empanada de Carne Molida x1</span>
+            <span>$2.50</span>
+          </li>
+          <li class="history-item-row">
+            <span>Malta x2</span>
+            <span>$2.20</span>
+          </li>
+          <li class="history-item-row">
+            <span>Brownie x1</span>
+            <span>$2.90</span>
+          </li>
+        </ul>
+      </article>
+    </section>
+    
+    <section id="shopping-cart-page" class="page">
+      <h2>Carrito de Compras</h2>
+
+      <ul id="cart-items" class="cart-items">
+        <li class="cart-empty-msg">No hay productos en el carrito.</li>
+      </ul>
+
+      <footer class="cart-footer">
+        <div class="cart-subtotal">
+          <span>Subtotal</span>
+          <strong id="cart-subtotal">$0.00</strong>
+        </div>
+        <div class="cart-actions">
+          <button class="confirm-btn" id="confirm-btn">Confirmar pedido</button>
+        </div>
+      </footer>
+    </section>
+
+  </main>
 
   <script src="../scripts/catalog.js"></script>
 </body>
