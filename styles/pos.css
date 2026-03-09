@@ -1,1 +1,130 @@
-// just to fill out this file
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #ffffff;
+  color: #1a1714;
+}
+
+/* Barra de navegacion */
+#navigation-bar {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0 32px; 
+  height: 58px;
+  background: #fff; 
+  border-bottom: 1.5px solid #e5e0d8;
+  position: sticky; 
+  top: 0; 
+  z-index: 100;
+}
+
+.nav-brand { 
+  font-weight: 700; 
+  font-size: 1rem; 
+  color: #2D6A4F; 
+}
+
+.nav-logout {
+  font-size: 0.875rem; 
+  font-weight: 500;
+  color: #8a8278; 
+  text-decoration: none;
+  padding: 7px 13px; 
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-logout:hover { 
+  background: #f5f5f5; 
+  color: #1a1714; 
+}
+
+/* Estilos de la parte principal */
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+main h2 {
+  font-size: 1.4rem; 
+  font-weight: 700; 
+  margin-bottom: 24px;
+}
+
+/* Estilos de la tabla */
+.pos-table {
+  width: 100%; 
+  border-collapse: collapse;
+  border: 1.5px solid #e5e0d8;
+  border-radius: 10px; 
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.pos-table th {
+  background: #f5f5f5; 
+  padding: 10px 14px;
+  text-align: left; 
+  font-size: 0.78rem;
+  text-transform: uppercase; 
+  letter-spacing: 0.06em;
+  color: #8a8278; 
+  border-bottom: 1.5px solid #e5e0d8;
+}
+
+.pos-table td {
+  padding: 12px 14px; 
+  font-size: 0.875rem;
+  border-bottom: 1px solid #e5e0d8;
+}
+
+.pos-table tbody tr:last-child td { border-bottom: none; }
+.pos-table tbody tr:hover td { background: #fafafa; }
+
+.pos-table tfoot td {
+  font-weight: 700; 
+  font-size: 1rem;
+  color: #2D6A4F; 
+  border-top: 1.5px solid #e5e0d8;
+  border-bottom: none;
+}
+
+/* Estilos para el boton de emitir recibo */
+.emit-btn {
+  width: 100%; 
+  padding: 12px; 
+  border: none; 
+  border-radius: 8px;
+  background: #2D6A4F; 
+  color: #fff;
+  font-size: 0.95rem; 
+  font-weight: 600; 
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 16px;
+}
+
+.emit-btn:hover    { background: #235c42; }
+.emit-btn:disabled { background: #a0c4b4; cursor: not-allowed; }
+
+/* ── MENSAJE RECIBO ── */
+.receipt-msg {
+  display: none;
+  text-align: center;
+  font-size: 1rem; 
+  font-weight: 600;
+  color: #2D6A4F;
+  background: #e8f5ee;
+  border: 1.5px solid #2D6A4F;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.receipt-msg.visible { display: block; }

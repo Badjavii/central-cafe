@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,59 @@
   <link rel="stylesheet" href="../styles/pos.css">
 </head>
 <body>
+
+  <nav id="navigation-bar">
+    <span class="nav-brand">Cafetín Central</span>
+    <a href="../index.html" class="nav-logout">Cerrar sesión</a>
+  </nav>
+
+  <main>
+    <h2>Punto de Venta</h2>
+
+    <!-- Pedido simulado -->
+    <table class="pos-table">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio unitario</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Café Negro</td>
+          <td>2</td>
+          <td>$2.50</td>
+          <td>$5.00</td>
+        </tr>
+        <tr>
+          <td>Empanada de Queso</td>
+          <td>1</td>
+          <td>$1.80</td>
+          <td>$1.80</td>
+        </tr>
+        <tr>
+          <td>Brownie</td>
+          <td>1</td>
+          <td>$2.90</td>
+          <td>$2.90</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total</td>
+          <td>$9.70</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <button class="emit-btn" id="emit-btn">Emitir Recibo</button>
+
+    <!-- Mensaje de confirmación -->
+    <p class="receipt-msg" id="receipt-msg">Recibo Emitido — ¡Gracias por su compra!</p>
+
+  </main>
 
   <script src="../scripts/pos.js"></script>
 </body>
