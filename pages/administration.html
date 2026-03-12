@@ -32,11 +32,11 @@
         </div>
         <div class="form-group">
           <label for="product-price">Precio ($)</label>
-          <input type="number" id="product-price" placeholder="0.00" min="0.01" step="0.01" />
+          <input type="number" id="product-price" placeholder="0.00" min="0.01" step="0.01" onkeydown="return !['e','E','+','-'].includes(event.key)" />
         </div>
         <div class="form-group">
-          <label for="product-img">URL de la foto (carpeta imagenes/)</label>
-          <input type="text" id="product-img" placeholder="imagenes/cafe-con-leche.webp" />
+          <label for="product-img">URL de la foto (carpeta imgs/productos/)</label>
+          <input type="text" id="product-img" placeholder="imgs/productos/cafe-con-leche.webp" />
         </div>
         <!-- Boton para agregar el nuevo producto -->
         <button type="button" class="primary-btn" id="add-btn">Agregar producto</button>
@@ -55,6 +55,19 @@
     <!-- Pestaña de Eliminar producto -->
     <section id="delete-page" class="page">
       <h2>Eliminar del Menú</h2>
+
+      <div class="confirm-msg" id="confirm-msg" style="display:none">
+        <p>¿Deseas eliminar <strong id="confirm-product-name"></strong>?</p>
+        <div>
+          <button class="confirm-btn" onclick="confirmarEliminacion()">Confirmar</button>
+          <button class="confirm-btn" onclick="cancelarEliminacion()">Cancelar</button>
+        </div>
+      </div>
+
+      <p class="success-msg" id="delete-success-msg" style="display:none">
+      Producto eliminado correctamente.
+      </p>
+
       <ul id="delete-products-list" class="delete-list"></ul>
     </section>
 

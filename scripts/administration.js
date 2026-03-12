@@ -5,7 +5,9 @@ const navLinks = document.querySelectorAll(".nav-link");
 const paginas  = document.querySelectorAll(".page");
 
 // Inicializar y declarar variables y listas
-// 1. Lista de productos en el sistema
+// 1. Variable para guardar el id del producto pendiente a eliminar
+let idPendiente = null;
+// 2. Lista de productos en el sistema
 const productos = [
   { id: 1, nombre: "Café Negro", precio: 2.50, img: "../imgs/cafe-negro.webp" },
   { id: 2, nombre: "Malta", precio: 1.10, img: "../imgs/malta.webp" },
@@ -35,13 +37,36 @@ function renderizarListaEliminar() {
   `).join("");
 }
 
-// Funcion para eliminar un producto especifico y volver a renderizar la lista
+// Funcion para guardar el id del producto a eliminar para luego confirmarlo
 function eliminarProducto(id) {
-  const indice = productos.findIndex(p => p.id === id);
+  const producto = productos.find(producto => producto.id === id);
+  if (!producto) {
+    return;
+  }
+
+  idPendiente = id;
+  document.getElementById("confirm-product-name").textContent = producto.nombre;
+  document.getElementById("confirm-msg").style.display = "block";
+} 
+
+// Funcion para confirmar la eliminacion de un producto especifico y volver a renderizar la lista
+function confirmarEliminacion() {
+  const indice = productos.findIndex(producto => producto.id === idPendiente);
   if (indice !== -1) { 
     productos.splice(indice, 1);
   }
+  
+  idPendiente = null;
+  document.getElementById("confirm-msg").style.display = "none";
+  const successMsg = document.getElementById("delete-success-msg");
+  successMsg.style.display = "block";
+  setTimeout(() => successMsg.style.display = "none", 2500);
   renderizarListaEliminar();
+}
+
+function cancelarEliminacion() {
+  idPendiente = null;
+  document.getElementById("confirm-msg").style.display = "none";
 }
 
 // Funcion que inyecta codigo para mostrar el producto agregado
@@ -96,7 +121,23 @@ document.getElementById("add-btn").addEventListener("click", () => {
   const precio = parseFloat(document.getElementById("product-price").value);
   const img   = document.getElementById("product-img").value.trim();
 
-  if (!nombre || !precio || !img) return;
+  if (!nombre || !precio || !img) {
+    return;
+  }
+
+  // Validar que las entradas de datos del formulario no esten vacias
+  if (!nombre) {
+    alert("Por favor ingresa el nombre del producto.");
+    return;
+  }
+  if (!precio || precio <= 0 || isNaN(precio)) {
+    alert("Por favor ingresa el nombre del producto.");
+    return;
+  }
+  if (!img) {
+    alert("Por favor ingresa el nombre del producto.");
+    return;
+  }
 
   const nuevoProducto = { id: Date.now(), nombre, precio, img, };
 
